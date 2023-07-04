@@ -2592,6 +2592,7 @@ input, select, textarea {
 		border: 0;
 		display: inline-block;
 		position: relative;
+		border-radius:5px;
 	}
 
 		.image img {
@@ -3762,6 +3763,7 @@ input, select, textarea {
 		width: calc(100% - 4rem);
 		max-width: 72rem;
 		z-index: 2;
+		border-radius:0px;
 	}
 
 		#main > * {
@@ -4575,6 +4577,7 @@ input, select, textarea {
 		visibility: hidden;
 		width: 20rem;
 		z-index: 10002;
+		
 	}
 
 		#navPanel .links {
