@@ -263,9 +263,7 @@ input, select, textarea {
 			line-height: 1.75;
 			padding: 1rem 1.5rem;
 			overflow-x: auto;
-			background-color: #f1f1f1 !important;
-  			padding: 1rem !important;
-  			border-radius: 5px !important;
+  			border-radius: 10px !important;
 		}
 
 	hr {

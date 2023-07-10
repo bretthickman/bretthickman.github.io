@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/themes/prism.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/hybrid.min.css">
 	</head>
 	<body class="is-preload">
 
@@ -60,8 +60,106 @@
 								<h2>Technical Details</h2>
 								<p>In 「Virtuosos」, I worked as a programmer along side two programmers three artists and two musicians. In order to improve maintainability, collaboration, and performance, we implemented modular and structured code in the development of 「Virtuosos」 to lay the foundation for a high-quality and enjoyable gaming experience:</p>
 								<h3>Sound Mangement</h3>
-								<p>All the original sound tracks in game are handled by the Conductor class. The main functionality of the class is to keep track of the current song position, and schedule the next piece of the music when needed.</p>
-								<h4>UNDER CONSTRUCTION MORE INFO COMING SOON</h4>
+								<p>All the original sound tracks in game are handled by the Conductor class. The main functionality of the class is to keep track of the current song position, and schedule the next piece of the music when needed. Here is a simplified version of the class, showing some of the constants values needed per song:</p>
+								<pre style="tab-size: 4;">
+									<code class = "language-csharp">public class Conductor : MonoBehaviour
+{
+	// constants info for a song
+	// for example, 4/4 Time with a resolution of 16th notes
+	private const int SPOTS_PER_BEAT = 4;
+	private const int BEATS_PER_BAR = 4;
+
+	// other constants info for a song
+	public float bpm;
+	public float beatLength;
+	public float spotLength;
+
+	// use to keep track of song position
+	public int spotNumber;
+	public int beatNumber;
+	public int barNumber;
+
+	// number of beats until the first beat of the beatmap
+	public int beats_till_first_note;
+	// constant offset for a song if not on beat
+	public double offset;
+	// player set offset based on monitor/speaker used
+	public float latency_offset;
+
+	// times for play scheduled
+	private double startTime;
+	private double nextStartTime;
+	private double lastStartTime;
+
+	// load drummer section as an example
+	public bool playDrumsNextBar = false;
+
+	void Start()
+	{
+		// initialize all the constants
+		initConstants();
+	}
+
+	public double GetSongPosition()
+	{
+		// Returns the unequivocal position in the current song.
+		return AudioSettings.dspTime - startTime 
+			- (beats_till_first_note * beatLength) 
+			- offset + latency_offset;
+	}
+}</code>
+								</pre>
+								<p>Notice that the GetSongPosition() function uses dspTime instead of normal Unity time. This is because When dealing with audio playback, scheduling events, or syncing audio with other gameplay elements, the audio system in Unity operates on a separate timeline, and dspTime provides a more accurate representation of time in the audio engine.</p>
+								<p>The following code is also part of the Conductor class, showing how we manage to schedule the next piece of the music when needed. Whether the player want to stay in the current sound track, or continue with the drummer portion of the level:</p>
+								<pre style="tab-size: 4;">
+									<code class = "language-csharp">public void Update()
+{
+	// if this is level 1, having 2 of the same BGM loaded
+	if(PlayerPrefs.GetInt("level_number") == 1) 
+	{
+		// if the first BGM is playing
+		if(current_background == 1) {
+			// scheduled the second BGM to play at the next in-coming bar
+			background2.PlayScheduled(nextStartTime);
+			current_background = 2;
+		}
+		// if the second BGM is playing
+		else {
+			// scheduled the first BGM to play at the next in-coming bar
+			background.PlayScheduled(nextStartTime);
+			current_background = 1;
+		}
+	}
+	// Check if the drummer section want to start
+	if(playDrumsNextBar) {
+		// scheduled the drummer song to play at the next in-coming bar
+		playDrumsNextBar = false;
+		drums.PlayScheduled(nextStartTime);
+	}
+
+	// update the current timers for play scheduled
+	lastStartTime = nextStartTime;
+	nextStartTime = nextStartTime + backgroundDuration;
+										}</code>
+								</pre>
+								<h3>Visualization</h3>
+								<p>Base on the beatmap structure above, we can simply spawn a note in the SpawnMaster class on a given track base on its type, length, and position. Updating note position can be divided into 2 pieces: move towards, and bounce off. First, we move the note towards the player using linear interplations:</p>
+								<div class="image fit"><img src="images/DV_interp_1.png"/><p><i>The start point of the interplation is at the track spawner (out of the viewport of the camera), and the end point is at the note trigger in front of the player, with the interplation factor based on current song position and current spot position.</i></p></div>
+								<p>Next, if the player hit the note at the correct time, the note changes its movement and bounce off. In this case, we change the movement calculation to use cosine interplations:</p>
+								<div class="image fit"><img src="images/DV_interp_2.png"/></div>
+								<h2>Art and Animation</h2>
+								<p>We were fortunate to have an amazing art team for this project. Collaborating with them was one of the highlights of this project because of their consistantly amazing output.</p>
+								<p>The first task we had them take on was designing the map for our game. With very little information they created the entire look and feel of the game:</p>
+								<div class="image fit"><img src="images/DV_far_background.jpg"/></div>
+								<p>The map was meticulously divided the map into distinct layers, carefully separating elements such as sprites, particles, and lights. This approach ensured that each layer contributed to the overall visual richness and depth, resulting in a captivating and visually immersive gaming environment.</p>
+								<div class="image fit"><img src="images/DV_map.gif"/></div>
+								<h3>Character Design</h3>
+								<p>The integration of characters was challenging and engaging, requiring collaboration with various team members including concept artists, lead artists, and the writer. Together, we embarked on an extensive creative process, aligning the character design with the game’s story, art style, and gameplay mechanics. This intricate task demanded careful consideration of every detail, resulting in the development of compelling and well-integrated characters.</p>
+								<div class="image fit"><img src="images/DV_drummer_con.jpg"/></div>
+								<p>The PlayerController class takes the reins in controlling the characters within「Virtuosos」. Serving as a central hub, it manages essential player information such as health, position, and velocity. Additionally, the PlayerController facilitates character switching and handles the intricacies of animation, which will be discuss next.</p>
+								<h3>2D Animation</h3>
+								<p>In「Virtuosos」, all the playable characters come to life through the magic of skeletal animation, offering us customization and reusability. When we initially dove into 2D animation in Unity, we sought inspiration and reference from other games’ animations. However, we put our unique spin on things when it came to the frame ratio for attack animations.</p>
+								<div class="image fit"><img src="images/DV_preview.gif"/></div>
 							</section>
 
 					</div>
@@ -106,7 +204,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/prism.js"></script>
-
+			<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+			<script>hljs.highlightAll();</script>
 	</body>
 </html>
