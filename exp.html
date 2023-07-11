@@ -6,12 +6,12 @@
 -->
 <html>
 	<head>
-		<title>Virtuosos</title>
+		<title>Experience</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/themes/prism.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/hybrid.min.css">
 	</head>
 	<body class="is-preload">
 
@@ -73,7 +73,65 @@
 								<div class="image right"><img src="images/s2.png"/></div>
 								<br><br><br><br><br><br><br>
 								<p>Nothing else to do, then, than to start a new journey!</p>
-								<h4>Technical Details Coming Soon</h4>
+								<h3>Technical Details</h3>
+								<p>The game was developed within 10 weeks from scratch in C++ and OpenGL, aside from using libraries to open windows, load meshes, and audio. We started the development with creating a world loader:</p>
+								<h4>Instanced Rendering</h4>
+								<pre style="tab-size: 4;">
+									<code class = "language-c">for(int i = 0; i < entry.model->meshes.size(); i++)
+{
+	glBindVertexArray(entry.model->meshes[i].VAO);
+	glDrawElementsInstanced(GL_TRIANGLES,
+	static_cast<unsigned int>(entry.model->meshes[i].indices.size()),
+		GL_UNSIGNED_INT, 0,
+		modelMatrices.size());
+		glBindVertexArray(0);
+}</code>
+								</pre>
+								<p>Models and particles are rendered using Instancing, increasing the maximum render cap by a sizable margin.</p>
+								<h4>Shadow Mapping</h4>
+								<pre style="tab-size: 4;">
+									<code class = "language-c">void render()
+{
+	shader.use();
+	glUniformMatrix4fv(lightSpaceMatrixLocation, 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
+	glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
+	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+	glClear(GL_DEPTH_BUFFER_BIT);
+	RenderScene(shader);
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}</code>
+								</pre>
+								<p>Our game makes a first render pass to a depth buffer, which is then used later in the pipeline to calculate dynamic shadows.</p>
+								<div class="image fit"><img src="images/shadow.png"/></div>
+								<h4>Bloom and Blur</h4>
+								<p>The game also uses a Bloom effect to simulate bright lights. We find bright segments (above a certain threshold), and we render these to their own Framebuffer. We then perform a Gaussian Blur on that framebuffer, which we merge with the original image to get our bloomed result.</p>
+								<div class="image left"><img src="images/before_bloomblur.png"/></div>
+								<div class="image right"><img src="images/after_bloomblur.png"/></div>
+								<br><br><br><br><br><br><br>
+								<h4>View Frustum Culling</h4>
+								<pre style="tab-size: 4;">
+									<code class = "language-c">bool ViewFrustCull(vec3 center, float radius)
+{
+	float dist;
+	for(int i=0; i < 6; i++){
+		dist = DistToPlane(planes[i].x, planes[i].y, planes[i].z, planes[i].w, center);
+		if(dist < 0 && fabs(dist) > radius){
+			return true;
+		}
+		}
+		return false;
+}</code>
+								</pre>
+								<div class="image left"><img src="images/before_cull.png"/></div>
+								<div class="image right"><img src="images/after_cull.png"/></div>
+								<br><br><br><br><br><br><br>
+								<p> It's hard to see, but the drawn objects decreases from 14616 to 3123 after culling. The game needs to be as performant as possible, especially considering the amount of models that we render. For this to be feasible, we implemented View Frustum Culling. It calculates the area that can be viewed, and performs spatial queries to determine if a given object should be drawn.</p>
+								<h4>Level Editor</h4>
+								<p>We developed a full level editor complete with an object, lighting, shadow, audio, and particle editor. We achieved this by saving files to an ASCII format and loading them into our game. It allows you to tweak every aspect of the levels, from particles to distance fog.</p>
+								<div class="image main"><img src="images/light_editor.png"/></div>
+								<div class="image main"><img src="images/select.png"/></div>
+								<h3>Retrospection</h3>
+								<p>Overall, I learned an incredible about from this project. It was my first attempt at creating a full 3D engine so there were plenty of issues and bad code. The whole time it felt like I was sprinting a marathon and learning 10 new things everyday but I enjoyed the whole process.</p>
 							</section>
 
 					</div>
@@ -118,7 +176,8 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/prism.js"></script>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+			<script>hljs.highlightAll();</script>
 
 	</body>
 </html>
