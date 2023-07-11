@@ -11,6 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/hybrid.min.css">
 	</head>
 	<body class="is-preload">
 
@@ -58,7 +59,62 @@
 								<p>In this game, the player has a variety of inputs available to them in order to navigate and interact with the game world. The primary means of movement is through the use of the WASD keys, which allow the player to move their character forward, backward, left, and right. This movement is crucial for exploring the game’s world, dodging enemy attacks, and positioning oneself for strategic advantage.</p>
 								<div class="image fit"><img src="images/gunfight_control.png"/></div>
 								<h3>Game Feel</h3>
-								<p>One of the main technical challenges in game development is creating a sense of “game feel.” This refers to the tactile and responsive nature of the game’s mechanics, which can greatly affect the player’s experience. By optimizing collision, transforms, animation, and post-processing rendering, we can create a game that feels responsive, immersive, and satisfying to play.</p>
+								<p>One of the main technical challenges in game development is creating a sense of “game feel.” This refers to the tactile and responsive nature of the game’s mechanics, which can greatly affect the player’s experience. By optimizing camera movement, animation, and gunplay, we can create a game that feels responsive, immersive, and satisfying to play.</p>
+								<h4>Camera</h4>
+								<p>The first thing I started with was the camera. Having a smooth top-down camera that could easily follow both the player and the mouse was extremely important. I opted to program the enitre system myself, having the camera track a midpoint between the player and the mouse position. That midpoint is then allowed to interpolate within a specified radius to smooth out the movement.</p>
+								<h4>Animation</h4>
+								<p>There is very little animtion in this game right now. Most of it surrounds firing bullets and throwing weapons. Firing bullets was done with multiple particles systems that are layered to create a speeding bullet effect. Throwing weapons is a physics based animation that applies momentum and angular velocity to a weapon.</p>
+								<h4>Gunplay</h4>
+								<p>When making any shooter game there are typically two ways you can go about firing bullets. The first way is firing an actual projectile out of the guns and having it fly through space and then detect when it collides with something. This way can be very visually pleasing because you get to see the bullets on screen, however, it can limit the speed at which the bullet travels depending on how collisons are calculated and the speed of the network. For this reason I opted for the second way to firing bullets which is to not fire a bullet at all. Instead you do a 2D Raycast in the direction the gun is facing. This is calcuates a line from the tip of the gun to whatever is in front of the gun almost instantly. Then you take whatever the 2D Raycast collides with and determine what you hit. This all happens with no visual on the screen so I added those bullet particles I talked about above to make it look like a bullet is firing out at super sonic speeds. This way is optimal for our game because it makes shooting bullets extremely fast and excting.  </p>
+								<pre style="tab-size: 4;">
+									<code class = "language-csharp">if (PlayerModel.GetComponent<PlayerInfo>().nAmmo > 0)
+{
+	Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+	Vector2 direction = (mousePos - (Vector2) shootPoint).normalized;
+	RaycastHit2D hit =
+		Physics2D
+			.Raycast(shootPoint,
+			PlayerModel.transform.up,
+			PlayerModel.GetComponent<PlayerInfo>().range);
+	...
+}</code>
+								</pre>
+								<h3>Networking</h3>
+								<p>Online muliplayer is the core to the gunfight experience. I had never done any networking or online game development prior to this project so there was a bit of a learning curve. This was the main reason I started this project however. I wanted to push myself to learn networking and online matchmaking.</p>
+								<h4>Steamworks & Mirror</h4>
+								<p>I decided to go with the Steamworks and Mirror API's for this project. Steamworks allows easy integration with the Steam platform and Steam multiplayer services. Mirror builds upon the Unity networking system to allow for easy creation of things like network transforms and client/server communitcation.</p>
+								<div class="image fit"><img src="images/gunfight_lobby.png"/><p><i>Here is an early version of the lobby system where you can easily join anyones lobby through Steam. It also gets your username and profile pic from Steam.</i></p></div>
+								<pre style="tab-size: 4;">
+									<code class = "language-csharp">public override void OnServerAddPlayer(NetworkConnectionToClient conn)
+{
+	if(SceneManager.GetActiveScene().name == "Lobby")
+	{
+		PlayerObjectController GamePlayerInstance = Instantiate(GamePlayerPrefab);
+
+		GamePlayerInstance.ConnectionID = conn.connectionId;
+		GamePlayerInstance.PlayerIdNumber = GamePlayers.Count + 1;
+		GamePlayerInstance.PlayerSteamID = (ulong)SteamMatchmaking.
+						GetLobbyMemberByIndex((CSteamID)SteamLobby.Instance.CurrentLobbyID, 
+												GamePlayers.Count);
+
+		NetworkServer.AddPlayerForConnection(conn, GamePlayerInstance.gameObject);
+	}
+
+}</code>
+								</pre>
+								<p>After getting lobbies and Steamworks setup I needed to get the players to sync across the network. This was done with ClientRPC's and Commands. This are functions are used to send messages and run code between the server and the client. So things like firing a bullet, spawning a weapon, detecting a hit, and even moving the player all need to be synced across the network with these functions.</p>
+								<h3>Art & Post Processing</h3>
+								<p>My friend Lucas Li did all of the art for this game. He used Aseprite to create various sprite sheets and a sprite map for the game.</p>
+								<div class="image fit"><img src="images/gunfight_sprite.png"/></div>
+								He also implemented post processing using Unity's built-in systems. This really helped solidify the look of the game.
+								<br>
+								<div class="image left"><img src="images/gunfight_beforePE2.png"/><i>Before</i></div>
+								<div class="image right"><img src="images/gunfight_afterPE2.png"/><i>After</i></div>
+								<br><br><br><br><br><br><br>
+								<h3>Retrospection after 10 weeks</h3>
+								<p>The goals for this game that we wanted to accomplish were to create two game modes, team and free for all, implement different weapons, and have shooting mechanics. We were not able to implement the team game mode but we did implement a free for all game mode with rounds, multiple weapons to use in the game, and the shooting mechanics for those weapons with fully online multiplayer. In the free for all game mode, weapons are randomly spawned throughout the map and the players fight to survive. From the <a href="https://docs.google.com/spreadsheets/d/1eVURxzKDa9ueqSXDtCbsYZvHK9GhQxBN5HRb4JTkN6g/edit#gid=1781814345" target = "_blank">game survey</a> we collected, playtesters were pleased with this game mode and the overall quality of the game. They were pleased with the overall art style, the intuitiveness of the controls, and the fairness of the game. The playtesters also enjoyed the multiplayer aspect of the game, where they could play with their friends. Overall I am so proud of this game and how I was able to push myself to make a networked game.</p>
+								<h3>Future Plans</h3>
+								<p>The game is slated to release by the end of 2023 in steam. I plan on fleshing out the team based gamemode, adding a random matchmaking system, and more game mechanics like grenades and armor. Stay tuned to this page for more updates and the eventual release!</p>
 							</section>
 
 					</div>
@@ -103,6 +159,8 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+			<script>hljs.highlightAll();</script>
 
 	</body>
 </html>
