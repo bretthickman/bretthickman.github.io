@@ -160,6 +160,16 @@
 								<h3>2D Animation</h3>
 								<p>In「Virtuosos」, all the playable characters come to life through the magic of skeletal animation, offering us customization and reusability. When we initially dove into 2D animation in Unity, we sought inspiration and reference from other games’ animations. However, we put our unique spin on things when it came to the frame ratio for attack animations.</p>
 								<div class="image fit"><img src="images/DV_preview.gif"/></div>
+								<p>Now, here’s where we did things a bit differently compared to some other games out there. Attack animations often have those stand-by, lead-in, attack, and follow-through phases. However, in our game, I made a bold decision to shake things up. I completely ditched the lead-in phase to give our rhythm game a distinctive and unparalleled game feel.</p>
+								<div class="image fit"><img src="images/DV_anim.gif"/></div>
+								<p>By doing so, we created a sense of immediacy and responsiveness that perfectly aligns with the rhythm-based mechanics. It’s all about hitting those beats and maintaining that flow without any unnecessary delays.</p>
+								<h3>Sprite Animation</h3>
+								<div class="image fit"><img src="images/DV_enemy3-01.png"/><p><i>When it came to the other in-game elements like notes and obstacles, we opted for sprite animation. Sprite animation provided us with a simpler and more efficient solution.</i></p></div>
+								<p>It was a breeze to implement, and whenever edits or adjustments were needed, we could tackle them with lightning speed. After all, when it comes to making quick changes or improvements, efficiency is key.</p>
+								<h2>Note Detection</h2>
+								<p>Detection recognition was the primary and most challenging task we undertook in the development of this game.</p>
+								<p>The range of each note is tied to the threshold system. Accuracy is defined by a floating number, with smaller thresholds indicating more demanding timing. A “good” action has a threshold of 1.0, offering a modest window, while achieving “perfect” requires remarkable precision with a threshold of only 0.3.</p>
+								<div class="image fit"><img src="images/DV_note_detect.png"/><p><i>A actual hit always happened in between 2 spots</i></p></div>
 							</section>
 
 					</div>
