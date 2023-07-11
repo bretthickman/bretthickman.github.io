@@ -170,6 +170,38 @@
 								<p>Detection recognition was the primary and most challenging task we undertook in the development of this game.</p>
 								<p>The range of each note is tied to the threshold system. Accuracy is defined by a floating number, with smaller thresholds indicating more demanding timing. A “good” action has a threshold of 1.0, offering a modest window, while achieving “perfect” requires remarkable precision with a threshold of only 0.3.</p>
 								<div class="image fit"><img src="images/DV_note_detect.png"/><p><i>A actual hit always happened in between 2 spots</i></p></div>
+								<h2>Input Detection</h2>
+								<p>To address the challenges of supporting multiple input systems during development, we transitioned from the chaotic input detection approach to a more organized solution. Instead of relying solely on the standard Unity Input API, we adopted the use of Action Map.</p>
+								<div class="image fit"><img src="images/DV_input_detect.png"/></div>
+								<pre style="tab-size: 4;">
+									<code class = "language-csharp">if (checkHit(KeyCode.Joystick1Button0, 
+	KeyCode.Joystick1Button2, 
+	KeyCode.Joystick1Button1, 
+	/* potentially needed for other 
+		controller or platform support,
+		but is overlapping with other
+		tracks.
+	KeyCode.Joystick1Button7,
+	KeyCode.Joystick1Button6,
+	KeyCode.Joystick1Button4,
+	*/
+	InputSystem.GetButton("leftShoulder"),
+	KeyCode.K, 2, low))
+hasBeenPressed[2] = true;</code>Old System
+								</pre>
+								<pre style="tab-size: 4;">
+									<code class = "language-csharp">public InputActionReference lowControls;
+
+if (checkHit(lowControls, 2, low))
+	hasBeenPressed[2] = true;</code>New System
+								</pre>
+								<p>The implementation of the Action Map not only facilitated support for multiple controllers and platforms, but it also offered increased flexibility for making simultaneous changes when necessary.</p>
+								<h2>Latency Detection</h2>
+								<p>Detecting and adjusting for latency is of utmost importance in「Virtuosos」. Players rely on precise timing to hit notes, and even the slightest delay can throw off their rhythm and disrupt the gameplay flow. To address the variability in latency between different monitors and speakers, we have implemented a user-friendly interface that allows players to manually adjust the latency while listening to the background music from the start page.</p>
+								<div class="image fit"><img src="images/DV_calibrate.png"/></div>
+								<p>By providing this interface, players can fine-tune the synchronization between the visual cues and the corresponding audio feedback according to their specific setup. Each time the user presses the interaction keys (such as space or a button on the controller), the game system calculates the latency by recording the current offset from the correct beat using the Unity audio engine. The system then displays the average offset of the 10 most recent presses from the user.</p>
+								<h2>Retrospective</h2>
+								<p>There are many more elements to this game that weren't discussed but this page would be a mile long if I kept going. In the end,「Virtuosos」is the culmination of our collective efforts to create a unique fusion of rhythm and JRPG elements. As a developer of「Virtuosos」, I am incredibly proud to present this game to you. It has been a journey filled with passion, creativity, and countless hours of hard work from an amazing team of friends.</p>
 							</section>
 
 					</div>
