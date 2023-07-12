@@ -58,7 +58,7 @@
 								<h3>Environment</h3>
 								<p>The environments of the game are threefold. To travel between the environments, the player can simply walk into the fog at the edge of each environment whenever they choose.</p>
 								<h4>Forest - A New Beginning</h4>
-								<p>At first, the player will find themselves in a quiet wood. This area is intended to evoke feelings of a fresh start. Secrets are found around every corner, and the world is new and interesting.</p>
+								<p>At first, the player will find themselves in a quiet forest. This area is intended to evoke feelings of a fresh start. Secrets are found around every corner, and the world is new and interesting.</p>
 								<div class="image left"><img src="images/f1.png"/></div>
 								<div class="image right"><img src="images/f2.png"/></div>
 								<br><br><br><br><br><br><br>
@@ -68,13 +68,13 @@
 								<div class="image right"><img src="images/d2.png"/></div>
 								<br><br><br><br><br><br><br>
 								<h4>Street - Completion and Loneliness</h4>
-								<p>Finally, the player will find themselves on a dark street in the middle of the night. No stars in the sky, just loneliness. streetlamps light the path. You have completed your journey, and overcome much, and have seen the fleeting beauty of the journey you’ve traveled, but now you find yourself alone. Only you know what you have learned.</p>
+								<p>Finally, the player will find themselves on a dark street in the middle of the night. No stars in the sky, just loneliness. Streetlamps light the path. You have completed your journey, and overcome much, and have seen the fleeting beauty of the journey you’ve traveled, but now you find yourself alone. Only you know what you have learned.</p>
 								<div class="image left"><img src="images/s1.png"/></div>
 								<div class="image right"><img src="images/s2.png"/></div>
 								<br><br><br><br><br><br><br>
 								<p>Nothing else to do, then, than to start a new journey!</p>
 								<h3>Technical Details</h3>
-								<p>The game was developed within 10 weeks from scratch in C++ and OpenGL, aside from using libraries to open windows, load meshes, and audio. We started the development with creating a world loader:</p>
+								<p>The game was developed within 10 weeks from scratch in C++ and OpenGL, aside from using libraries to open windows, load meshes, and audio. We started the development with creating a world loader.</p>
 								<h4>Instanced Rendering</h4>
 								<pre style="tab-size: 4;">
 									<code class = "language-c">for(int i = 0; i < entry.model->meshes.size(); i++)
@@ -87,7 +87,7 @@
 		glBindVertexArray(0);
 }</code>
 								</pre>
-								<p>Models and particles are rendered using Instancing, increasing the maximum render cap by a sizable margin.</p>
+								<p>Models and particles are rendered using instancing, increasing the maximum render cap by a sizable margin.</p>
 								<h4>Shadow Mapping</h4>
 								<pre style="tab-size: 4;">
 									<code class = "language-c">void render()
@@ -104,7 +104,7 @@
 								<p>Our game makes a first render pass to a depth buffer, which is then used later in the pipeline to calculate dynamic shadows.</p>
 								<div class="image fit"><img src="images/shadow.png"/></div>
 								<h4>Bloom and Blur</h4>
-								<p>The game also uses a Bloom effect to simulate bright lights. We find bright segments (above a certain threshold), and we render these to their own Framebuffer. We then perform a Gaussian Blur on that framebuffer, which we merge with the original image to get our bloomed result.</p>
+								<p>The game also uses a Bloom effect to simulate bright lights. We find bright segments (above a certain threshold), and we render these to their own framebuffer. We then perform a Gaussian blur on that framebuffer, which we merge with the original image to get our bloomed result.</p>
 								<div class="image left"><img src="images/before_bloomblur.png"/></div>
 								<div class="image right"><img src="images/after_bloomblur.png"/></div>
 								<br><br><br><br><br><br><br>
@@ -125,7 +125,7 @@
 								<div class="image left"><img src="images/before_cull.png"/></div>
 								<div class="image right"><img src="images/after_cull.png"/></div>
 								<br><br><br><br><br><br><br>
-								<p> It's hard to see, but the drawn objects decreases from 14616 to 3123 after culling. The game needs to be as performant as possible, especially considering the amount of models that we render. For this to be feasible, we implemented View Frustum Culling. It calculates the area that can be viewed, and performs spatial queries to determine if a given object should be drawn.</p>
+								<p> It's hard to see, but the drawn objects decreases from 14616, to 3123 after culling. The game needs to be as performant as possible, especially considering the amount of models that we render. For this to be feasible, we implemented view frustum culling. It calculates the area that can be viewed, and performs spatial queries to determine if a given object should be drawn.</p>
 								<h4>Level Editor</h4>
 								<p>We developed a full level editor complete with an object, lighting, shadow, audio, and particle editor. We achieved this by saving files to an ASCII format and loading them into our game. It allows you to tweak every aspect of the levels, from particles to distance fog.</p>
 								<div class="image main"><img src="images/light_editor.png"/></div>

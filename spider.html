@@ -47,45 +47,45 @@
 									<p>Just a bunch of "spiders"</p>
 								</header>
 								<div class="image main"><img src="images/spiders.gif" alt="" /></div>
-								<p>Over my years at Cal Poly, I took a variety of graphics classes but one of my favorites was computer animation. This class was taught in C++ and OpenGl. I learned animation file structures, quaternions, splines and Bezier curves, animation blending, skinning and
+								<p>Over my years at Cal Poly, I took a variety of graphics classes but one of my favorites was computer animation. This class was taught in C++ and OpenGl. I learned animation file structures, quaternions, splines, Bezier curves, animation blending, skinning, and
 								inverse kinematics. For the final project I decided I wanted to teach myself procedural animation. This is the process of automatically generating animation in real-time to allow for a more diverse series of actions than could otherwise be created using predefined animations.
 								In my case, I thought it would be straight forward to start with spiders.</p>
 								<h2>Implementation</h2>
-								<p>My goal was to have a body that you could simply just move it's position and the legs would automatically animate. To achieve this I had to start with the basis of most procedural animation, which is inverse kinematics.
-									Inverse kinematics or IK is the process of determining the appropriate joint angles to achieve a desired end effector position in a robotic or animated system. This basically allows you to simulate joint movement in real-time.
+								<p>My goal was to have a body that you could simply move it's position and the legs would automatically animate. To achieve this I had to start with the basis of most procedural animation, which is inverse kinematics.
+									Inverse kinematics or IK is the process of determining the appropriate joint angles to achieve a desired position in a robotic or animated system. This basically allows you to simulate joint movement in real-time.
 								</p>
 								<h3>F.A.B.R.I.K.</h3>
-								There are many inverse kinematic algorithms but I chose to use the Forward And Backward Reaching Inverse Kinematics (FABRIK) algorithm. 
+								There are many inverse kinematic algorithms, but I chose to use the Forward And Backward Reaching Inverse Kinematics (FABRIK) algorithm. 
 								<div class="image main"><img src="images/fabrik.png" alt="" /></div>
 								<p>It works like this: First, you define the starting positions of the limb and the target position you want it to reach. 
 									Then, you divide the arm into segments, just like our human arm has bones and joints. 
 									Each segment has a certain length and can rotate at its joint. 
-									The algorithm starts at the last segment like the hand. 
+									The algorithm starts at the last segment, like the hand. 
 									It then pretends that the hand is already at the target position and works backwards to move each joint corresponding to the segment lengths.
 									Once that's done it checks if the distance from the start of the arm to the new start position is the same. 
-									If not, you then move that start position to the start (just like how it moved the hand to the target) and works forward through the arm. 
+									If not, it then moves the new start position to the original start position (just like how it moved the hand to the target) and works forward through the arm. 
 									Then it checks if the hand is at the target. If not, it repeats until the positions line up.
 								</p>
-								<p>Once it's done you have a new positions for a limb that is touching any target position. With this in mind, I can use this algorithm on the limbs of the spiders to have them realistically move to any position.</p>
+								<p>Once it's done you have new positions for a limb that is touching any target position. With this in mind, I can use this algorithm on the limbs of the spiders to have them realistically move to any position.</p>
 								<h3>The Spider Class</h3>
 								<div class="image main"><img src="images/spider_pic2.png" alt="" /><i>This shows that the legs are really just a vector of points. The black boxes are the points and the colored lines show each separate leg.</i></div>
 								<p> I made a spider class in C++ that consisted of a spiders position, legs, and target points. 
 									The legs are just an array of points that I would send into my implementation of the fabrik algorithm. 
 									This would snap the legs to the target points. Now I needed to have it create fluid animation.</p>
 								<h3>Animation</h3>
-								<p>In order to now procedurally animated the spider's legs I had to think about how legs actually walk. 
+								<p>In order to procedurally animate the spider's legs I had to think about how legs actually walk. 
 									If you try to move you body without moving your legs, you're going to fall on your face. 
 									With this enlightening fact in mind, I decided that if the body of the spider moves and the target positions get too far form the leg, then I should interpolate the legs to the target position (using fabrik).</p>
 									<p>There is still one last issue. Normally, when an animal takes a step it lifts it's leg slightly and then drops it on the target position.
-										With the current explanation the spiders legs would just slide across the ground. 
+										With the current explanation, the spiders legs would just slide across the ground. 
 										To fix this, whenever the leg decides it needs to take a step, I first make a fake target that is half way to the real one but also above the ground.
 										Then once the leg is there, I lerp to the actual target position. 
 									</p>
 								<div class="image main"><img src="images/spiders_dev.gif" alt="" /></div>
-								<p>Finally once you combine all of those step you get spiders than can walk around by themselves. I implemented a simple AI that just randomly moves and rotates the position of the spider's body and I was done.</p>
+								<p>Finally, once you combine all of those steps you get spiders than can walk around by themselves. I implemented a simple AI that just randomly moves and rotates the position of the spider's body and the effect was complete.</p>
 								<h2>Retrospective</h2>
 								<p>Learning the basics of procedural animation was a blast and watching these little AI spiders crawl around is so amazing.
-									There so much more to learn too, like procedural facial animation, more physics based animations, or even bigger simulations. I can't wait to explore more!
+									There is so much more to learn, like procedural facial animation, more physics based animations, or even bigger simulations. I can't wait to explore more!
 								</p>
 							</section>
 
