@@ -51,9 +51,9 @@
 
 									There is also a free-for-all game mode where random weapons spawn around the map and you have to fight to survive.</p>
 								<h2>Design</h2>
-								<p>I was the solo designer and project manager for this game. I made the overall design desisions like art styles and sprite designs. I also programmed the entire game myself.</p>
+								<p>I was the solo designer and project manager for this game. I made the overall design decisions like art styles and sprite designs. I also programmed the entire game myself.</p>
 								<h3>Art</h3>
-								<p>I wanted this game to have a cohesive art style so I decided to go with a 70's vector art color pallete and style as seen below.</p>
+								<p>I wanted this game to have a cohesive art style so I decided to go with a 70's vector art color palette and style as seen below.</p>
 								<div class="image fit"><img src="images/gunfight_colors.jpg"/></div>
 								<h3>Controls</h3>
 								<p>In this game, the player has a variety of inputs available to them in order to navigate and interact with the game world. The primary means of movement is through the use of the WASD keys, which allow the player to move their character forward, backward, left, and right. This movement is crucial for exploring the game’s world, dodging enemy attacks, and positioning oneself for strategic advantage.</p>
@@ -61,11 +61,11 @@
 								<h3>Game Feel</h3>
 								<p>One of the main technical challenges in game development is creating a sense of “game feel.” This refers to the tactile and responsive nature of the game’s mechanics, which can greatly affect the player’s experience. By optimizing camera movement, animation, and gunplay, we can create a game that feels responsive, immersive, and satisfying to play.</p>
 								<h4>Camera</h4>
-								<p>The first thing I started with was the camera. Having a smooth top-down camera that could easily follow both the player and the mouse was extremely important. I opted to program the enitre system myself, having the camera track a midpoint between the player and the mouse position. That midpoint is then allowed to interpolate within a specified radius to smooth out the movement.</p>
+								<p>The first thing I started with was the camera. Having a smooth top-down camera that could easily follow both the player and the mouse was extremely important. I opted to program the entire system myself, having the camera track a midpoint between the player and the mouse position. That midpoint is then allowed to interpolate within a specified radius to smooth out the movement.</p>
 								<h4>Animation</h4>
-								<p>There is very little animtion in this game right now. Most of it surrounds firing bullets and throwing weapons. Firing bullets was done with multiple particles systems that are layered to create a speeding bullet effect. Throwing weapons is a physics based animation that applies momentum and angular velocity to a weapon.</p>
+								<p>There is very little animation in this game right now. Most of it surrounds firing bullets and throwing weapons. Firing bullets was done with multiple particles systems that are layered to create a speeding bullet effect. Throwing weapons is a physics based animation that applies momentum and angular velocity to a weapon.</p>
 								<h4>Gunplay</h4>
-								<p>When making any shooter game there are typically two ways you can go about firing bullets. The first way is firing an actual projectile out of the guns and having it fly through space and then detect when it collides with something. This way can be very visually pleasing because you get to see the bullets on screen, however, it can limit the speed at which the bullet travels depending on how collisons are calculated and the speed of the network. For this reason I opted for the second way to firing bullets which is to not fire a bullet at all. Instead you do a 2D Raycast in the direction the gun is facing. This is calcuates a line from the tip of the gun to whatever is in front of the gun almost instantly. Then you take whatever the 2D Raycast collides with and determine what you hit. This all happens with no visual on the screen so I added those bullet particles I talked about above to make it look like a bullet is firing out at super sonic speeds. This way is optimal for our game because it makes shooting bullets extremely fast and excting.  </p>
+								<p>When making any shooter game there are typically two ways you can go about firing bullets. The first way is firing an actual projectile out of the guns and having it fly through space and then detect when it collides with something. This way can be very visually pleasing because you get to see the bullets on screen, however, it can limit the speed at which the bullet travels depending on how collisions are calculated and the speed of the network. For this reason I opted for the second way to firing bullets which is to not fire a bullet at all. Instead you do a 2D Raycast in the direction the gun is facing. This is calculates a line from the tip of the gun to whatever is in front of the gun almost instantly. Then you take whatever the 2D Raycast collides with and determine what you hit. This all happens with no visual on the screen so I added those bullet particles I talked about above to make it look like a bullet is firing out at super sonic speeds. This way is optimal for our game because it makes shooting bullets extremely fast and exciting.  </p>
 								<pre style="tab-size: 4;">
 									<code class = "language-csharp">if (PlayerModel.GetComponent<PlayerInfo>().nAmmo > 0)
 {
@@ -80,9 +80,9 @@
 }</code>
 								</pre>
 								<h3>Networking</h3>
-								<p>Online muliplayer is the core to the gunfight experience. I had never done any networking or online game development prior to this project so there was a bit of a learning curve. This was the main reason I started this project however. I wanted to push myself to learn networking and online matchmaking.</p>
+								<p>Online multiplayer is the core to the gunfight experience. I had never done any networking or online game development prior to this project so there was a bit of a learning curve. This was the main reason I started this project however. I wanted to push myself to learn networking and online matchmaking.</p>
 								<h4>Steamworks & Mirror</h4>
-								<p>I decided to go with the Steamworks and Mirror API's for this project. Steamworks allows easy integration with the Steam platform and Steam multiplayer services. Mirror builds upon the Unity networking system to allow for easy creation of things like network transforms and client/server communitcation.</p>
+								<p>I decided to go with the Steamworks and Mirror API's for this project. Steamworks allows easy integration with the Steam platform and Steam multiplayer services. Mirror builds upon the Unity networking system to allow for easy creation of things like network transforms and client/server communication.</p>
 								<div class="image fit"><img src="images/gunfight_lobby.png"/><p><i>Here is an early version of the lobby system where you can easily join anyones lobby through Steam. It also gets your username and profile pic from Steam.</i></p></div>
 								<pre style="tab-size: 4;">
 									<code class = "language-csharp">public override void OnServerAddPlayer(NetworkConnectionToClient conn)

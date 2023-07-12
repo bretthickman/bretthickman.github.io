@@ -55,11 +55,11 @@
 								<p>The heart of 「Virtuosos」 lies in its immersive music performance gameplay. Players step into the role of talented musicians and embark on a quest to master rhythms and melodies. Through carefully timed inputs and precise execution, players must perform musical sequences to progress through levels and overcome challenges.</p>
 								<div class="image fit"><img src="images/DV_gameplay_2.png"/></div>
 								<h3>Visual Novel</h3>
-								<p>On the other side, players are invited to embark on an immersive journey through a rich and captivating story. Dialogues and Narrtives will provide deeper insights into the world of Virtuosos, allowing players to develop connections with the characters and become fully immersed in the narrative.</p>
+								<p>On the other side, players are invited to embark on an immersive journey through a rich and captivating story. Dialogues and Narratives will provide deeper insights into the world of Virtuosos, allowing players to develop connections with the characters and become fully immersed in the narrative.</p>
 								<div class="image fit"><img src="images/DV_d2.png"/></div>
 								<h2>Technical Details</h2>
 								<p>In 「Virtuosos」, I worked as a programmer along side two programmers three artists and two musicians. In order to improve maintainability, collaboration, and performance, we implemented modular and structured code in the development of 「Virtuosos」 to lay the foundation for a high-quality and enjoyable gaming experience:</p>
-								<h3>Sound Mangement</h3>
+								<h3>Sound Management</h3>
 								<p>All the original sound tracks in game are handled by the Conductor class. The main functionality of the class is to keep track of the current song position, and schedule the next piece of the music when needed. Here is a simplified version of the class, showing some of the constants values needed per song:</p>
 								<pre style="tab-size: 4;">
 									<code class = "language-csharp">public class Conductor : MonoBehaviour
@@ -143,12 +143,12 @@
 										}</code>
 								</pre>
 								<h3>Visualization</h3>
-								<p>Base on the beatmap structure above, we can simply spawn a note in the SpawnMaster class on a given track base on its type, length, and position. Updating note position can be divided into 2 pieces: move towards, and bounce off. First, we move the note towards the player using linear interplations:</p>
-								<div class="image fit"><img src="images/DV_interp_1.png"/><p><i>The start point of the interplation is at the track spawner (out of the viewport of the camera), and the end point is at the note trigger in front of the player, with the interplation factor based on current song position and current spot position.</i></p></div>
-								<p>Next, if the player hit the note at the correct time, the note changes its movement and bounce off. In this case, we change the movement calculation to use cosine interplations:</p>
+								<p>Base on the beatmap structure above, we can simply spawn a note in the SpawnMaster class on a given track base on its type, length, and position. Updating note position can be divided into 2 pieces: move towards, and bounce off. First, we move the note towards the player using linear interpolations:</p>
+								<div class="image fit"><img src="images/DV_interp_1.png"/><p><i>The start point of the interpolation is at the track spawner (out of the viewport of the camera), and the end point is at the note trigger in front of the player, with the interpolation factor based on current song position and current spot position.</i></p></div>
+								<p>Next, if the player hit the note at the correct time, the note changes its movement and bounce off. In this case, we change the movement calculation to use cosine interpolations:</p>
 								<div class="image fit"><img src="images/DV_interp_2.png"/></div>
 								<h2>Art and Animation</h2>
-								<p>We were fortunate to have an amazing art team for this project. Collaborating with them was one of the highlights of this project because of their consistantly amazing output.</p>
+								<p>We were fortunate to have an amazing art team for this project. Collaborating with them was one of the highlights of this project because of their consistently amazing output.</p>
 								<p>The first task we had them take on was designing the map for our game. With very little information they created the entire look and feel of the game:</p>
 								<div class="image fit"><img src="images/DV_far_background.jpg"/></div>
 								<p>The map was meticulously divided the map into distinct layers, carefully separating elements such as sprites, particles, and lights. This approach ensured that each layer contributed to the overall visual richness and depth, resulting in a captivating and visually immersive gaming environment.</p>
