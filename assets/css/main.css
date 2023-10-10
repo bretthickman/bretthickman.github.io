@@ -28,6 +28,24 @@ section, summary, time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
+	
+	.bullet-list {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	  }
+	  
+	  .bullet-list li {
+		margin-bottom: 10px;
+	  }
+	  
+	  .bullet-list-right {
+		text-align: right;
+		align-items: flex-end;
+	  }
 
 body {
 	line-height: 1;
