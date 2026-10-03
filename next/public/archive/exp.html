@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Experience</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/hybrid.min.css">
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Brett</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="index.html#project-anc">Projects</a></li>
+							<li class="active"><a href="virtuosos.html">Experience</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/brett-hickman-cp" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/bretthickman" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">July 10, 2022</span>
+									<h1>Experience</h1>
+									<p>A full 3D engine in C++ and OpenGL</p>
+								</header>
+								<a class="image main"><img src="images/exp_cover.png" alt="" /></a>
+								<p>By <b> Brett Hickman, Lucas Li, Alex Hartford</b></p>
+								<div class="image fit"><iframe width="560" height="315" src="https://www.youtube.com/embed/9Me2BgbvU00" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+								<p>Experience is a small expressive game made in 10 weeks about the process of trying to improve at something. The game involves walking through various environments which evoke feelings like those experienced when learning something new.</p>
+								<h3>Gameplay</h3>
+								<p>The game takes place from a first-person perspective. The gameplay is as simple as walking and observing. The player can interact with their environment, reading notes strewn about the environment and talking with animals.</p>
+								<div class="image left"><img src="images/note1.jpeg"/></div>
+								<div class="image right"><img src="images/note2.jpeg"/></div>
+								<br><br><br><br><br><br><br>
+								<h3>Environment</h3>
+								<p>The environments of the game are threefold. To travel between the environments, the player can simply walk into the fog at the edge of each environment whenever they choose.</p>
+								<h4>Forest - A New Beginning</h4>
+								<p>At first, the player will find themselves in a quiet forest. This area is intended to evoke feelings of a fresh start. Secrets are found around every corner, and the world is new and interesting.</p>
+								<div class="image left"><img src="images/f1.png"/></div>
+								<div class="image right"><img src="images/f2.png"/></div>
+								<br><br><br><br><br><br><br>
+								<h4>Desert - Arduous Journey</h4>
+								<p>Next, the player will find themselves in a desert wasteland, with long stretches of empty land and steep sand dunes. Bloom and Blur effects make the journey feel arduous. Deep in the desert you may find secrets, but they are few and far between, and this area evokes the feeling of being overwhelmed by your task.</p>
+								<div class="image left"><img src="images/d1.png"/></div>
+								<div class="image right"><img src="images/d2.png"/></div>
+								<br><br><br><br><br><br><br>
+								<h4>Street - Completion and Loneliness</h4>
+								<p>Finally, the player will find themselves on a dark street in the middle of the night. No stars in the sky, just loneliness. Streetlamps light the path. You have completed your journey, and overcome much, and have seen the fleeting beauty of the journey you’ve traveled, but now you find yourself alone. Only you know what you have learned.</p>
+								<div class="image left"><img src="images/s1.png"/></div>
+								<div class="image right"><img src="images/s2.png"/></div>
+								<br><br><br><br><br><br><br>
+								<p>Nothing else to do, then, than to start a new journey!</p>
+								<h3>Technical Details</h3>
+								<p>The game was developed within 10 weeks from scratch in C++ and OpenGL, aside from using libraries to open windows, load meshes, and audio. We started the development with creating a world loader.</p>
+								<h4>Instanced Rendering</h4>
+								<pre style="tab-size: 4;">
+									<code class = "language-c">for(int i = 0; i < entry.model->meshes.size(); i++)
+{
+	glBindVertexArray(entry.model->meshes[i].VAO);
+	glDrawElementsInstanced(GL_TRIANGLES,
+	static_cast<unsigned int>(entry.model->meshes[i].indices.size()),
+		GL_UNSIGNED_INT, 0,
+		modelMatrices.size());
+		glBindVertexArray(0);
+}</code>
+								</pre>
+								<p>Models and particles are rendered using instancing, increasing the maximum render cap by a sizable margin.</p>
+								<h4>Shadow Mapping</h4>
+								<pre style="tab-size: 4;">
+									<code class = "language-c">void render()
+{
+	shader.use();
+	glUniformMatrix4fv(lightSpaceMatrixLocation, 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
+	glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
+	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+	glClear(GL_DEPTH_BUFFER_BIT);
+	RenderScene(shader);
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}</code>
+								</pre>
+								<p>Our game makes a first render pass to a depth buffer, which is then used later in the pipeline to calculate dynamic shadows.</p>
+								<div class="image fit"><img src="images/shadow.png"/></div>
+								<h4>Bloom and Blur</h4>
+								<p>The game also uses a Bloom effect to simulate bright lights. We find bright segments (above a certain threshold), and we render these to their own framebuffer. We then perform a Gaussian blur on that framebuffer, which we merge with the original image to get our bloomed result.</p>
+								<div class="image left"><img src="images/before_bloomblur.png"/></div>
+								<div class="image right"><img src="images/after_bloomblur.png"/></div>
+								<br><br><br><br><br><br><br>
+								<h4>View Frustum Culling</h4>
+								<pre style="tab-size: 4;">
+									<code class = "language-c">bool ViewFrustCull(vec3 center, float radius)
+{
+	float dist;
+	for(int i=0; i < 6; i++){
+		dist = DistToPlane(planes[i].x, planes[i].y, planes[i].z, planes[i].w, center);
+		if(dist < 0 && fabs(dist) > radius){
+			return true;
+		}
+		}
+		return false;
+}</code>
+								</pre>
+								<div class="image left"><img src="images/before_cull.png"/></div>
+								<div class="image right"><img src="images/after_cull.png"/></div>
+								<br><br><br><br><br><br><br>
+								<p> It's hard to see, but the drawn objects decreases from 14616, to 3123 after culling. The game needs to be as performant as possible, especially considering the amount of models that we render. For this to be feasible, we implemented view frustum culling. It calculates the area that can be viewed, and performs spatial queries to determine if a given object should be drawn.</p>
+								<h4>Level Editor</h4>
+								<p>We developed a full level editor complete with an object, lighting, shadow, audio, and particle editor. We achieved this by saving files to an ASCII format and loading them into our game. It allows you to tweak every aspect of the levels, from particles to distance fog.</p>
+								<div class="image main"><img src="images/light_editor.png"/></div>
+								<div class="image main"><img src="images/select.png"/></div>
+								<h3>Retrospective</h3>
+								<p>Overall, I learned an incredible about from this project. It was my first attempt at creating a full 3D engine so there were plenty of issues and bad code. The whole time it felt like I was sprinting a marathon and learning 10 new things everyday but I enjoyed the whole process.</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Resume</h3>
+								<p><a href="resume.pdf">Download</a></p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="tel:949-486-9548">(949) 486-9548</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto: brett33hickman@gmail.com">brett33hickman@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/brett-hickman-cp" target="_blank" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/bretthickman" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Brett Hickman</li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+			<script>hljs.highlightAll();</script>
+
+	</body>
+</html>

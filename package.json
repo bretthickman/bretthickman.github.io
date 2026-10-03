@@ -1,0 +1,30 @@
+{
+  "name": "brett-hickman-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config next/vite.config.ts --host 127.0.0.1 --port 5173 --strictPort",
+    "build": "tsc -b next && vite build --config next/vite.config.ts",
+    "preview": "vite preview --config next/vite.config.ts --host 127.0.0.1 --port 4173 --strictPort",
+    "test": "node --experimental-strip-types --test next/tests/*.test.ts",
+    "build:pages": "tsc -b next && node scripts/build-pages.mjs",
+    "preview:pages": "node scripts/serve-pages.mjs"
+  },
+  "dependencies": {
+    "@base-ui/react": "1.8.0",
+    "@dimforge/rapier2d-compat": "0.21.0",
+    "@fontsource-variable/dm-sans": "5.3.0",
+    "@fontsource/dm-serif-display": "5.3.0",
+    "lucide-react": "1.50.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.2"
+  }
+}

@@ -1,0 +1,7 @@
+# Preserve the original site and its archived copy byte for byte.
+/*.html -text
+/assets/** -text
+/images/** -text
+/LICENSE.txt -text
+/README.txt -text
+next/public/archive/** -text

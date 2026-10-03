@@ -1,0 +1,1158 @@
+[
+  {
+    "id": "about",
+    "title": "about me",
+    "label": "brett",
+    "category": "about",
+    "appearance": "note",
+    "summary": "UI/UX designer with a computer science background.",
+    "topics": [
+      "who is Brett Hickman",
+      "about me",
+      "background",
+      "computer science",
+      "Cal Poly",
+      "UI UX designer",
+      "design and programming",
+      "interests",
+      "what is Brett good at"
+    ],
+    "sections": [
+      {
+        "heading": "background",
+        "paragraphs": [
+          "I’m Brett Hickman. I work in UI/UX and studied computer science at Cal Poly. My projects include interface design, games, graphics, animation, and music."
+        ]
+      },
+      {
+        "heading": "approach",
+        "paragraphs": [
+          "I focus on clear interfaces, responsive controls, and natural movement."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "linkedin",
+        "url": "https://www.linkedin.com/in/brett-hickman-cp"
+      },
+      {
+        "label": "github",
+        "url": "https://github.com/bretthickman"
+      }
+    ]
+  },
+  {
+    "id": "design-systems",
+    "title": "ui/ux & design systems",
+    "label": "systems",
+    "category": "work",
+    "appearance": "palette",
+    "summary": "UI/UX and design systems work at Industrious Design and Premier.",
+    "topics": [
+      "professional work",
+      "work experience",
+      "Industrious Design",
+      "Premier",
+      "design systems",
+      "UI UX",
+      "user interface",
+      "user experience",
+      "career",
+      "what does Brett do",
+      "what is Brett good at"
+    ],
+    "sections": [
+      {
+        "heading": "work",
+        "paragraphs": [
+          "I’ve worked in UI/UX and design systems at Industrious Design and Premier."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "linkedin",
+        "url": "https://www.linkedin.com/in/brett-hickman-cp"
+      }
+    ]
+  },
+  {
+    "id": "interaction-design",
+    "title": "interaction design",
+    "label": "interaction",
+    "category": "craft",
+    "appearance": "interface",
+    "summary": "Input timing, camera movement, and feedback in my games.",
+    "topics": [
+      "interaction design",
+      "UI UX skills",
+      "game feel",
+      "animation",
+      "motion design",
+      "responsive controls",
+      "feedback",
+      "usability",
+      "latency calibration",
+      "what is Brett good at"
+    ],
+    "sections": [
+      {
+        "heading": "input timing",
+        "paragraphs": [
+          "In Virtuosos, our attack animations skip the lead-in to respond immediately to a beat. Players can calibrate timing for their screen and speakers using the average offset of their ten most recent inputs."
+        ],
+        "image": {
+          "src": "/archive/images/DV_preview.gif",
+          "alt": "Virtuosos gameplay with moving notes and hit feedback",
+          "width": 600,
+          "height": 338,
+          "caption": "Virtuosos note timing and hit feedback. Silent demo.",
+          "stillSrc": "/media/virtuosos-gameplay-still.webp"
+        }
+      },
+      {
+        "heading": "camera and weapon movement",
+        "paragraphs": [
+          "For Gunfight, I made the camera follow a point between the player and the mouse, with interpolation to smooth its movement. Thrown weapons use momentum and angular velocity."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "virtuosos case study",
+        "url": "/archive/virtuosos.html"
+      },
+      {
+        "label": "gunfight case study",
+        "url": "/archive/gunfight.html"
+      }
+    ]
+  },
+  {
+    "id": "creative-programming",
+    "title": "programming",
+    "label": "code",
+    "category": "craft",
+    "appearance": "code",
+    "summary": "C++, OpenGL, Unity, animation, and multiplayer.",
+    "topics": [
+      "creative programming",
+      "coding",
+      "technical skills",
+      "C++",
+      "OpenGL",
+      "Unity",
+      "C#",
+      "graphics",
+      "procedural animation",
+      "inverse kinematics",
+      "game engines",
+      "networking",
+      "what is Brett good at"
+    ],
+    "sections": [
+      {
+        "heading": "graphics and animation",
+        "paragraphs": [
+          "I’ve built a 3D game in C++ and OpenGL, implemented procedural spider movement with inverse kinematics, and worked on rhythm gameplay in Unity."
+        ]
+      },
+      {
+        "heading": "multiplayer",
+        "paragraphs": [
+          "Gunfight was my first networked game. I used Steamworks and Mirror to build lobbies and synchronize gameplay between players."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "github",
+        "url": "https://github.com/bretthickman"
+      }
+    ]
+  },
+  {
+    "id": "audio",
+    "title": "music & game audio",
+    "label": "audio",
+    "category": "craft",
+    "appearance": "rhythm",
+    "summary": "Music composition, dynamic mixing, and rhythm-game timing.",
+    "topics": [
+      "game audio",
+      "music",
+      "audio",
+      "sound design",
+      "composition",
+      "dynamic music",
+      "audio programming",
+      "rhythm",
+      "Frogmancer",
+      "Virtuosos",
+      "what is Brett good at"
+    ],
+    "sections": [
+      {
+        "heading": "frogmancer",
+        "paragraphs": [
+          "I created all of Frogmancer’s music, programmed its audio, and wrote mixer scripts that adjusted the music as the game progressed. Our game received Best Audio at the IGDA San Diego Annual Game Jam."
+        ]
+      },
+      {
+        "heading": "virtuosos",
+        "paragraphs": [
+          "Our sound system in Virtuosos uses Unity’s audio clock to track song position and schedule musical sections. Visual notes and gameplay follow that timing."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "frogmancer jam results",
+        "url": "https://itch.io/jam/sdgj-2023/results/best-audio"
+      },
+      {
+        "label": "play virtuosos",
+        "url": "https://gelzonexunsas.itch.io/virtuosos"
+      }
+    ]
+  },
+  {
+    "id": "running",
+    "title": "running",
+    "label": "running",
+    "category": "life",
+    "appearance": "runner",
+    "summary": "Running outside of work.",
+    "topics": [
+      "running",
+      "running career",
+      "sports",
+      "life outside work",
+      "personal interests",
+      "what does Brett do outside design"
+    ],
+    "sections": [
+      {
+        "heading": "running",
+        "paragraphs": [
+          "I’m a runner."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "resume",
+    "title": "résumé",
+    "label": "résumé",
+    "category": "about",
+    "appearance": "document",
+    "summary": "The résumé from my original portfolio.",
+    "topics": [
+      "resume",
+      "résumé",
+      "CV",
+      "download resume",
+      "qualifications",
+      "education",
+      "background",
+      "computer science",
+      "early work"
+    ],
+    "sections": [
+      {
+        "heading": "résumé pdf",
+        "paragraphs": [
+          "This résumé covers my computer science background and early work."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "download résumé",
+        "url": "/resume.pdf"
+      },
+      {
+        "label": "linkedin",
+        "url": "https://www.linkedin.com/in/brett-hickman-cp"
+      }
+    ]
+  },
+  {
+    "id": "contact",
+    "title": "contact",
+    "label": "contact",
+    "category": "about",
+    "appearance": "contact",
+    "summary": "Email, LinkedIn, and GitHub.",
+    "topics": [
+      "contact",
+      "email",
+      "get in touch",
+      "connect",
+      "LinkedIn",
+      "GitHub",
+      "talk to Brett",
+      "reach Brett"
+    ],
+    "sections": [
+      {
+        "heading": "contact",
+        "paragraphs": [
+          "Email me at brett33hickman@gmail.com. You can also find me on LinkedIn and GitHub."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "email",
+        "url": "mailto:brett33hickman@gmail.com"
+      },
+      {
+        "label": "linkedin",
+        "url": "https://www.linkedin.com/in/brett-hickman-cp"
+      },
+      {
+        "label": "github",
+        "url": "https://github.com/bretthickman"
+      }
+    ]
+  },
+  {
+    "id": "virtuosos",
+    "title": "ongawa (formerly virtuosos)",
+    "label": "ongawa",
+    "category": "work",
+    "appearance": "studio",
+    "summary": "Former CTO at Virtuosos, the rhythm-game company that became Ongawa.",
+    "topics": [
+      "Ongawa",
+      "Virtuosos",
+      "CTO",
+      "chief technology officer",
+      "game company",
+      "technical leadership",
+      "rhythm game",
+      "music",
+      "Unity",
+      "C#",
+      "game development",
+      "team collaboration",
+      "controller input",
+      "latency",
+      "animation",
+      "projects",
+      "portfolio"
+    ],
+    "sections": [
+      {
+        "heading": "my role",
+        "paragraphs": [
+          "I served as CTO at Virtuosos, which became Ongawa. I worked with programmers, artists, and musicians to build the rhythm game in Unity. The game combined timed musical input with characters, environments, and visual-novel storytelling."
+        ]
+      },
+      {
+        "heading": "rhythm gameplay",
+        "paragraphs": [
+          "Our Conductor system tracks song position using Unity’s audio clock and schedules musical sections ahead of time. Notes approach the player through linear interpolation and bounce away with cosine interpolation after a successful hit."
+        ],
+        "image": {
+          "src": "/media/optimized/DV_gameplay_2.webp",
+          "alt": "Virtuosos rhythm gameplay with note tracks and a score display",
+          "width": 3330,
+          "height": 1870,
+          "caption": "Note tracks, score, and timing feedback in an early Virtuosos build."
+        }
+      },
+      {
+        "heading": "input and calibration",
+        "paragraphs": [
+          "We moved input handling into Action Maps to support different controllers. A calibration screen measures the average timing offset of a player’s ten most recent presses so they can adjust for their screen and speakers."
+        ]
+      },
+      {
+        "heading": "ongawa",
+        "paragraphs": [
+          "Ongawa describes the game as a mix of rhythm gameplay and role-playing, with a focus on music, creativity, and discovering musical talent. These images show the earlier Virtuosos build."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "ongawa",
+        "url": "https://www.ongawa.io/"
+      },
+      {
+        "label": "early virtuosos prototype",
+        "url": "https://gelzonexunsas.itch.io/virtuosos"
+      },
+      {
+        "label": "original case study",
+        "url": "/archive/virtuosos.html"
+      }
+    ],
+    "image": {
+      "src": "/media/optimized/DV_cover.webp",
+      "alt": "Virtuosos rhythm game cover artwork",
+      "width": 2000,
+      "height": 1127,
+      "caption": "Cover artwork from the early Virtuosos project."
+    }
+  },
+  {
+    "id": "gunfight",
+    "title": "gunfight",
+    "label": "gunfight",
+    "category": "project",
+    "appearance": "game",
+    "summary": "My first online multiplayer game: a top-down shooter.",
+    "topics": [
+      "Gunfight",
+      "multiplayer",
+      "online game",
+      "shooter",
+      "game design",
+      "project management",
+      "Unity",
+      "Steamworks",
+      "Mirror",
+      "networking",
+      "game feel",
+      "projects",
+      "portfolio"
+    ],
+    "sections": [
+      {
+        "heading": "my role",
+        "paragraphs": [
+          "I led the design and project management and programmed the game. Lucas Li created the sprite artwork and implemented post-processing. I used a 1970s-inspired vector palette."
+        ],
+        "image": {
+          "src": "/archive/images/gunfight_colors.jpg",
+          "alt": "Four graphic studies using the earth-tone Gunfight palette",
+          "width": 1020,
+          "height": 360,
+          "caption": "The 1970s-inspired color palette used in Gunfight."
+        }
+      },
+      {
+        "heading": "camera and weapons",
+        "paragraphs": [
+          "The camera follows a point between the player and the mouse, with interpolation to smooth its movement. Shooting uses a 2D raycast and layered particles for visual feedback. Thrown weapons use momentum and angular velocity."
+        ]
+      },
+      {
+        "heading": "multiplayer",
+        "paragraphs": [
+          "I used Steamworks and Mirror for Steam lobbies and client/server communication. In the first ten weeks, I completed a free-for-all mode with rounds, multiple weapons, shooting mechanics, and online multiplayer. The planned team mode was not part of that version."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "original case study",
+        "url": "/archive/gunfight.html"
+      }
+    ],
+    "image": {
+      "src": "/media/optimized/gunfight_afterPE2.webp",
+      "alt": "Gunfight’s top-down arena after post-processing",
+      "width": 2558,
+      "height": 1446,
+      "caption": "Gunfight’s arena, with Lucas Li’s sprites and post-processing."
+    },
+    "year": "2023"
+  },
+  {
+    "id": "experience",
+    "title": "experience",
+    "label": "experience",
+    "category": "project",
+    "appearance": "game",
+    "summary": "A first-person game built in C++ and OpenGL.",
+    "topics": [
+      "Experience game",
+      "C++",
+      "OpenGL",
+      "3D engine",
+      "graphics",
+      "environment design",
+      "storytelling",
+      "level editor",
+      "shadows",
+      "bloom",
+      "rendering",
+      "projects",
+      "portfolio"
+    ],
+    "sections": [
+      {
+        "heading": "the game",
+        "paragraphs": [
+          "I made Experience with Lucas Li and Alex Hartford in ten weeks. Players walk, observe, read notes, and talk with animals across three environments. Each represents a stage of learning: a forest at the beginning, a desert in the difficult middle, and a quiet street at the end."
+        ]
+      },
+      {
+        "heading": "engine",
+        "paragraphs": [
+          "We built the game in C++ and OpenGL, using libraries for windows, mesh loading, and audio. The renderer includes instancing, shadow mapping, bloom, Gaussian blur, and view frustum culling."
+        ],
+        "image": {
+          "src": "/media/optimized/after_bloomblur.webp",
+          "alt": "A bright sunset in Experience with bloom and blur applied",
+          "width": 2557,
+          "height": 1599,
+          "caption": "Bloom and Gaussian blur soften bright areas."
+        }
+      },
+      {
+        "heading": "level editor",
+        "paragraphs": [
+          "We built a level editor for objects, lighting, shadows, audio, and particles. It saves levels in an ASCII format that the game can load."
+        ],
+        "image": {
+          "src": "/media/optimized/select.webp",
+          "alt": "The Experience level editor showing scene objects and an editing panel",
+          "width": 2558,
+          "height": 1598,
+          "caption": "Object placement and scene settings in the level editor."
+        }
+      }
+    ],
+    "links": [
+      {
+        "label": "original case study",
+        "url": "/archive/exp.html"
+      }
+    ],
+    "image": {
+      "src": "/media/optimized/exp_cover.webp",
+      "alt": "An environment from the first-person game Experience",
+      "width": 2553,
+      "height": 1598
+    },
+    "year": "2022"
+  },
+  {
+    "id": "procedural-animation",
+    "title": "procedural animation",
+    "label": "motion",
+    "category": "project",
+    "appearance": "code",
+    "summary": "Spider movement generated in real time with inverse kinematics.",
+    "topics": [
+      "procedural animation",
+      "spiders",
+      "motion",
+      "inverse kinematics",
+      "FABRIK",
+      "C++",
+      "OpenGL",
+      "computer animation",
+      "simulation",
+      "AI",
+      "graphics",
+      "projects",
+      "portfolio"
+    ],
+    "sections": [
+      {
+        "heading": "the project",
+        "paragraphs": [
+          "For my computer animation final project at Cal Poly, I taught myself procedural animation in C++ and OpenGL. Moving a spider’s body makes its legs adjust and step."
+        ]
+      },
+      {
+        "heading": "leg positions",
+        "paragraphs": [
+          "I implemented FABRIK, an inverse kinematics algorithm, to position each leg’s joints around a target. When the body moves too far from a leg’s target, that leg takes a new step."
+        ],
+        "image": {
+          "src": "/media/optimized/fabrik.webp",
+          "alt": "A diagram of a joint chain reaching toward a target through FABRIK passes",
+          "width": 850,
+          "height": 288,
+          "caption": "Backward and forward passes reposition a joint chain while preserving segment lengths."
+        }
+      },
+      {
+        "heading": "stepping",
+        "paragraphs": [
+          "I added a target halfway through each step and above the ground so the feet lift instead of sliding. Each leg interpolates through that point before landing. A simple AI moves and rotates the bodies so the spiders wander."
+        ],
+        "image": {
+          "src": "/archive/images/spiders.gif",
+          "alt": "Procedural spiders walking across a yellow ground plane",
+          "width": 320,
+          "height": 176,
+          "caption": "Leg targets and stepping logic generate the walk as the bodies move.",
+          "stillSrc": "/media/procedural-spiders-walk-still.webp"
+        }
+      }
+    ],
+    "links": [
+      {
+        "label": "original case study",
+        "url": "/archive/spider.html"
+      }
+    ],
+    "image": {
+      "src": "/media/optimized/spider_pic.webp",
+      "alt": "Procedural spiders with articulated legs",
+      "width": 1920,
+      "height": 991
+    },
+    "year": "2023"
+  },
+  {
+    "id": "rootscaped",
+    "title": "rootscaped",
+    "label": "roots",
+    "category": "project",
+    "appearance": "game",
+    "summary": "A 48-hour game made for Global Game Jam 2023.",
+    "topics": [
+      "Rootscaped",
+      "roots",
+      "Global Game Jam",
+      "2023",
+      "game jam",
+      "48 hours",
+      "collaboration",
+      "game development",
+      "projects",
+      "portfolio"
+    ],
+    "sections": [
+      {
+        "heading": "global game jam",
+        "paragraphs": [
+          "The theme for Global Game Jam 2023 was “Roots.” I worked with a few colleagues to make Rootscaped, a game about roots, in 48 hours."
+        ],
+        "image": {
+          "src": "/archive/images/root.gif",
+          "alt": "Animated Rootscaped artwork with roots behind the game’s title",
+          "width": 630,
+          "height": 500,
+          "caption": "The 48-hour Rootscaped build.",
+          "stillSrc": "/media/rootscaped-demo-still.webp"
+        }
+      }
+    ],
+    "links": [
+      {
+        "label": "play on itch.io",
+        "url": "https://kanaz312.itch.io/rootscaped"
+      }
+    ],
+    "image": {
+      "src": "/media/optimized/root_cover.webp",
+      "alt": "Rootscaped game cover artwork",
+      "width": 2044,
+      "height": 1024
+    },
+    "year": "2023"
+  },
+  {
+    "id": "robolol",
+    "title": "robolol",
+    "label": "robolol",
+    "category": "project",
+    "appearance": "game",
+    "summary": "A party game where players compete to tell the best joke.",
+    "topics": [
+      "Robolol",
+      "party game",
+      "jokes",
+      "humor",
+      "Ludum Dare 53",
+      "delivery",
+      "game jam",
+      "48 hours",
+      "collaboration",
+      "game development",
+      "projects",
+      "portfolio"
+    ],
+    "sections": [
+      {
+        "heading": "ludum dare 53",
+        "paragraphs": [
+          "Ludum Dare 53’s theme was “Delivery.” My colleagues and I made Robolol in 48 hours, using joke delivery as the premise. Players compete to tell the best joke to an audience."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "play on itch.io",
+        "url": "https://kanaz312.itch.io/robolol"
+      }
+    ],
+    "image": {
+      "src": "/media/optimized/calnVQ.webp",
+      "alt": "Robolol party game artwork",
+      "width": 794,
+      "height": 442
+    },
+    "year": "2023"
+  },
+  {
+    "id": "frogmancer",
+    "title": "frogmancer",
+    "label": "frogmancer",
+    "category": "project",
+    "appearance": "game",
+    "summary": "A game-jam project where I composed the music and programmed the audio.",
+    "topics": [
+      "Frogmancer",
+      "music",
+      "sound design",
+      "dynamic audio",
+      "audio programming",
+      "mixer scripts",
+      "Best Audio",
+      "IGDA San Diego",
+      "game jam",
+      "collaboration",
+      "projects",
+      "portfolio"
+    ],
+    "sections": [
+      {
+        "heading": "my role",
+        "paragraphs": [
+          "I worked with a team on Frogmancer for the IGDA San Diego Annual Game Jam. I created all the music, programmed the audio, and worked on sound effects."
+        ]
+      },
+      {
+        "heading": "dynamic music",
+        "paragraphs": [
+          "I wrote mixer scripts that adjusted the music as the game progressed. Frogmancer received the jam’s Best Audio award."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "jam results",
+        "url": "https://itch.io/jam/sdgj-2023/results/best-audio"
+      }
+    ],
+    "image": {
+      "src": "/media/optimized/frog_cover.webp",
+      "alt": "Frogmancer game cover artwork",
+      "width": 1366,
+      "height": 768
+    },
+    "year": "2023"
+  },
+  {
+    "id": "timing-calibration",
+    "title": "timing calibration",
+    "label": "timing",
+    "category": "craft",
+    "appearance": "metronome",
+    "summary": "Adjusting rhythm-game timing for different screens and speakers.",
+    "topics": [
+      "latency calibration",
+      "timing",
+      "rhythm game",
+      "Virtuosos",
+      "screen and speakers",
+      "input delay",
+      "audio synchronization",
+      "calibration interface",
+      "feedback",
+      "usability"
+    ],
+    "sections": [
+      {
+        "heading": "input delay",
+        "paragraphs": [
+          "Different screens and speakers introduce different delays. We built a calibration interface on Virtuosos’s start screen so players could adjust the offset while listening to the music."
+        ]
+      },
+      {
+        "heading": "measuring the offset",
+        "paragraphs": [
+          "Each press is measured against the beat using Unity’s audio engine. The screen shows the average offset of the ten most recent presses, which players use to adjust the alignment of sound and visual cues."
+        ],
+        "image": {
+          "src": "/media/optimized/DV_calibrate.webp",
+          "alt": "The Virtuosos calibration screen with timing markers and an input prompt",
+          "width": 3326,
+          "height": 1872,
+          "caption": "Input timing calibration against the background beat."
+        }
+      }
+    ],
+    "links": [
+      {
+        "label": "virtuosos case study",
+        "url": "/archive/virtuosos.html"
+      },
+      {
+        "label": "play virtuosos",
+        "url": "https://gelzonexunsas.itch.io/virtuosos"
+      }
+    ],
+    "year": "2023"
+  },
+  {
+    "id": "audio-clock",
+    "title": "audio clock",
+    "label": "audio clock",
+    "category": "craft",
+    "appearance": "disc",
+    "summary": "Using Unity’s audio timeline to synchronize rhythm gameplay.",
+    "topics": [
+      "audio clock",
+      "music timing",
+      "Conductor",
+      "Virtuosos",
+      "Unity",
+      "dspTime",
+      "scheduled playback",
+      "audio programming",
+      "beats and bars",
+      "synchronization"
+    ],
+    "sections": [
+      {
+        "heading": "song position",
+        "paragraphs": [
+          "Our Conductor class in Virtuosos tracks the song’s position, beats, and bars. It uses Unity’s audio clock rather than the game clock, so gameplay follows the same timeline as the music."
+        ]
+      },
+      {
+        "heading": "scheduled playback",
+        "paragraphs": [
+          "The system schedules upcoming background music and instrumental sections ahead of time. Song position also determines where notes appear on their tracks and when the player should hit them."
+        ],
+        "image": {
+          "src": "/media/optimized/DV_interp_1.webp",
+          "alt": "The Virtuosos note track with annotated spawner and trigger positions",
+          "width": 3584,
+          "height": 2240,
+          "caption": "Notes travel from the spawner toward the player’s trigger using song position."
+        }
+      }
+    ],
+    "links": [
+      {
+        "label": "virtuosos case study",
+        "url": "/archive/virtuosos.html"
+      }
+    ],
+    "year": "2023"
+  },
+  {
+    "id": "controller-input",
+    "title": "keyboard & controller input",
+    "label": "inputs",
+    "category": "craft",
+    "appearance": "keyboard",
+    "summary": "Using Unity Action Maps for keyboard and controller bindings.",
+    "topics": [
+      "controller input",
+      "keyboard",
+      "controls",
+      "input handling",
+      "Action Maps",
+      "Virtuosos",
+      "Unity",
+      "InputActionReference",
+      "maintainable code",
+      "button bindings"
+    ],
+    "sections": [
+      {
+        "heading": "direct button checks",
+        "paragraphs": [
+          "Our early Virtuosos code checked individual keyboard and controller buttons directly. Each new input layout required more checks in the gameplay code."
+        ]
+      },
+      {
+        "heading": "action maps",
+        "paragraphs": [
+          "We moved to Unity Action Maps. Gameplay refers to an input action, and its bindings define the keys or buttons that trigger it. This keeps the bindings in one place and makes controller support easier to change."
+        ],
+        "image": {
+          "src": "/media/optimized/DV_input_detect.webp",
+          "alt": "Unity input actions with keyboard and controller bindings for Virtuosos",
+          "width": 1996,
+          "height": 1212,
+          "caption": "Input actions collect keyboard and controller bindings in one map."
+        }
+      }
+    ],
+    "links": [
+      {
+        "label": "virtuosos case study",
+        "url": "/archive/virtuosos.html"
+      }
+    ],
+    "year": "2023"
+  },
+  {
+    "id": "steam-lobbies",
+    "title": "steam lobbies",
+    "label": "lobbies",
+    "category": "craft",
+    "appearance": "ticket",
+    "summary": "Steam lobbies and multiplayer synchronization in Gunfight.",
+    "topics": [
+      "Steam lobbies",
+      "Steamworks",
+      "Mirror",
+      "Gunfight",
+      "multiplayer",
+      "online matchmaking",
+      "networking",
+      "client server",
+      "profiles",
+      "game development"
+    ],
+    "sections": [
+      {
+        "heading": "lobby system",
+        "paragraphs": [
+          "Gunfight was my first online game. I used Steamworks and Mirror to build a lobby system that players could join through Steam. It also displayed their Steam usernames and profile pictures."
+        ],
+        "image": {
+          "src": "/media/optimized/gunfight_lobby.webp",
+          "alt": "An early Gunfight lobby with Steam usernames and profile images",
+          "width": 1080,
+          "height": 608,
+          "caption": "An early Steam lobby showing player names and profile images."
+        }
+      },
+      {
+        "heading": "gameplay synchronization",
+        "paragraphs": [
+          "I used Commands and client RPCs to synchronize movement, firing, weapon spawning, and hit detection between the server and players."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "gunfight case study",
+        "url": "/archive/gunfight.html"
+      }
+    ],
+    "year": "2023"
+  },
+  {
+    "id": "camera-follow",
+    "title": "camera movement",
+    "label": "camera",
+    "category": "craft",
+    "appearance": "interface",
+    "summary": "A camera that follows the player and mouse position in Gunfight.",
+    "topics": [
+      "camera movement",
+      "camera follow",
+      "mouse aim",
+      "Gunfight",
+      "game feel",
+      "interpolation",
+      "top down",
+      "camera smoothing",
+      "responsive controls"
+    ],
+    "sections": [
+      {
+        "heading": "player and mouse position",
+        "paragraphs": [
+          "I programmed Gunfight’s top-down camera to track the midpoint between the player and the mouse."
+        ]
+      },
+      {
+        "heading": "smoothing",
+        "paragraphs": [
+          "The midpoint interpolates within a defined radius to smooth the camera’s movement. It was one of the first systems I worked on."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "gunfight case study",
+        "url": "/archive/gunfight.html"
+      }
+    ],
+    "year": "2023"
+  },
+  {
+    "id": "weapon-momentum",
+    "title": "weapon throws",
+    "label": "momentum",
+    "category": "craft",
+    "appearance": "note",
+    "summary": "Using momentum and angular velocity to animate thrown weapons.",
+    "topics": [
+      "momentum",
+      "physics animation",
+      "angular velocity",
+      "weapon throws",
+      "Gunfight",
+      "game feel",
+      "motion",
+      "simulation",
+      "animation"
+    ],
+    "sections": [
+      {
+        "heading": "throwing",
+        "paragraphs": [
+          "In Gunfight, I applied momentum and angular velocity to thrown weapons to move and rotate them."
+        ]
+      },
+      {
+        "heading": "shooting",
+        "paragraphs": [
+          "Firing uses layered particle systems to show a bullet’s movement. Throwing uses the movement of the weapon itself."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "gunfight case study",
+        "url": "/archive/gunfight.html"
+      }
+    ],
+    "year": "2023"
+  },
+  {
+    "id": "inverse-kinematics",
+    "title": "inverse kinematics",
+    "label": "ik",
+    "category": "craft",
+    "appearance": "code",
+    "summary": "The FABRIK solver used for my procedural spider legs.",
+    "topics": [
+      "inverse kinematics",
+      "IK",
+      "FABRIK",
+      "procedural animation",
+      "spiders",
+      "joints",
+      "C++",
+      "OpenGL",
+      "computer animation",
+      "graphics programming"
+    ],
+    "sections": [
+      {
+        "heading": "backward pass",
+        "paragraphs": [
+          "I used FABRIK to calculate the joint positions of each spider leg. The solver works backward from the target, repositioning joints while preserving each segment’s length."
+        ]
+      },
+      {
+        "heading": "forward pass",
+        "paragraphs": [
+          "A forward pass restores the leg’s starting point and adjusts the remaining joints. Repeating the passes moves the end toward its target. I represented each leg as an array of points in C++; the animation system chooses a target, and the solver calculates the joint positions."
+        ],
+        "image": {
+          "src": "/archive/images/spiders_dev.gif",
+          "alt": "A development view of procedural spider legs and target points",
+          "width": 313,
+          "height": 176,
+          "caption": "A development view of the leg chains and their moving target points.",
+          "stillSrc": "/media/procedural-spiders-ik-still.webp"
+        }
+      }
+    ],
+    "links": [
+      {
+        "label": "procedural animation case study",
+        "url": "/archive/spider.html"
+      }
+    ],
+    "year": "2023"
+  },
+  {
+    "id": "level-editor",
+    "title": "level editor",
+    "label": "editor",
+    "category": "craft",
+    "appearance": "folder",
+    "summary": "The level editor we built for Experience.",
+    "topics": [
+      "level editor",
+      "Experience",
+      "creative tools",
+      "world building",
+      "environment design",
+      "C++",
+      "OpenGL",
+      "objects",
+      "lighting",
+      "particles",
+      "audio",
+      "ASCII files"
+    ],
+    "sections": [
+      {
+        "heading": "scene controls",
+        "paragraphs": [
+          "We built a level editor alongside the game engine for Experience. It lets us edit objects, lighting, shadows, audio, particles, and distance fog."
+        ],
+        "image": {
+          "src": "/media/optimized/light_editor.webp",
+          "alt": "Light and sun editing panels in the Experience scene editor",
+          "width": 852,
+          "height": 363,
+          "caption": "Controls for light positions, color, and settings."
+        }
+      },
+      {
+        "heading": "level files",
+        "paragraphs": [
+          "The editor saves levels in an ASCII format that the game can load. We used it to build the forest, desert, and street environments."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "experience case study",
+        "url": "/archive/exp.html"
+      }
+    ],
+    "year": "2022"
+  },
+  {
+    "id": "best-audio",
+    "title": "best audio award",
+    "label": "best audio",
+    "category": "craft",
+    "appearance": "award",
+    "summary": "Frogmancer won Best Audio at the 2023 IGDA San Diego Annual Game Jam.",
+    "topics": [
+      "Best Audio award",
+      "recognition",
+      "Frogmancer",
+      "IGDA San Diego Annual Game Jam",
+      "2023",
+      "music composition",
+      "sound effects",
+      "dynamic audio",
+      "mixer scripts",
+      "audio programming"
+    ],
+    "sections": [
+      {
+        "heading": "frogmancer",
+        "paragraphs": [
+          "I created all of Frogmancer’s music, programmed its audio, and wrote mixer scripts that changed the music as the game progressed. Our team’s game received Best Audio at the IGDA San Diego Annual Game Jam in 2023."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "jam results",
+        "url": "https://itch.io/jam/sdgj-2023/results/best-audio"
+      }
+    ],
+    "year": "2023"
+  }
+]
